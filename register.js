@@ -20,7 +20,10 @@ window.addEventListener("DOMContentLoaded", e => {
         };
         fetch("http://localhost:3000/api/user/", fetchOptions)
             .then(response => response.json())
-            .then(message => console.log(message))
+            .then(message => {
+                console.log(message);
+                window.location.href = message.redirected;
+            })
             .catch(error => console.error(error.message));
     });
 });

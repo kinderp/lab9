@@ -19,6 +19,10 @@ app.get('register.html', (req, res, next) => {
     res.sendFile(__dirname + '/' + 'register.html');
 });
 
+app.get('login.html', (req, res, next) => {
+    res.sendFile(__dirname + '/' + 'login.html');
+});
+
 // Insert here other API endpoints
 
 app.get("/api/users", (req, res, next) => {
@@ -86,7 +90,8 @@ app.post("/api/user/", (req, res, next) => {
         res.json({
             "message": "success",
             "data": data,
-            "id" : this.lastID
+            "id" : this.lastID,
+            "redirected": "register_success.html"
         })
     });
 });
